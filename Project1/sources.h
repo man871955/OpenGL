@@ -13,7 +13,7 @@
 #include "camera.h"
 #include "model.h"
 
-camera cam(glm::vec3(0.0f, 1.0f, 0.0f));
+camera cam(glm::vec3(0.0f, 1.0f, 1.0f));
 bool firstMouse = true;
 float lastX = 400, lastY = 300;
 float deltaTime = 0.0f, lastFrame = 0.0f;
@@ -440,6 +440,7 @@ void renderCube()
 
 
 void renderModel(Shader& shader,Model& mod,glm::vec3 pos,float scale,float x = 0,float y = 0,float z = 0) {
+	shader.use();
 	glm::mat4 model(1.0f);
 	model = glm::mat4(1.0f);
 	model = glm::translate(model, pos);

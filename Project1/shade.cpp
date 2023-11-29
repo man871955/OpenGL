@@ -38,7 +38,7 @@ int  main() {
 	Model chess("model/chess/chess_set_1k.fbx");
 	Model table1("model/table1/wooden_table_02_1k.fbx");
 	Model duck("model/duck/rubber_duck_toy_1k.fbx");
-	Model table2("model/table2/WoodenTable_01_1k.fbx");
+	Model table2("model/table2/modern_coffee_table_01_1k.fbx");
 	Model statue("model/statue/horse_statue_01_1k.fbx");
 	Model lamp("model/lamp/modern_ceiling_lamp_01_1k.fbx");
 	Model cat("model/cat/concrete_cat_statue_1k.fbx");
@@ -49,6 +49,12 @@ int  main() {
 	Model camera("model/camera/Camera_01_1k.fbx");
 	Model TV("model/TV/Television_01_1k.fbx");
 	Model side_table("model/side_table/side_table_01_1k.fbx");
+	Model picture("model/picture/fancy_picture_frame_01_1k.fbx");
+	Model picture2("model/picture2/fancy_picture_frame_02_1k.fbx");
+	Model cart("model/cart/CoffeeCart_01_1k.fbx");
+	Model boombox("model/boombox/boombox_1k.fbx");
+	Model win("model/window/030.3dcool.net.obj");
+	Model door("model/door/Door.obj");
 
 	glViewport(0, 0, 800, 600);
 	const GLuint SHADOW_WIDTH = 4096, SHADOW_HEIGHT = 4096;
@@ -89,10 +95,18 @@ int  main() {
 
 	vector<unsigned int> floor;
 	BindPBRTextures(floor, "floor");
-	vector<unsigned int> walls;
-	BindPBRTextures(walls, "wood");
-	vector<unsigned int> steel;
-	BindPBRTextures(steel, "steel");
+	vector<unsigned int> wood;
+	BindPBRTextures(wood, "wood");
+	vector<unsigned int> metal;
+	BindPBRTextures(metal, "metal");
+	vector<unsigned int> plastic;
+	BindPBRTextures(plastic, "plastic");
+	vector<unsigned int> wood_table;
+	BindPBRTextures(wood_table, "table");
+	vector<unsigned int> rock;
+	BindPBRTextures(rock, "rock");
+	vector<unsigned int> wood_door;
+	BindPBRTextures(wood_door, "door");
 	
 	skyShader.use();
 	skyShader.setInt("skybox",0);
@@ -144,29 +158,39 @@ int  main() {
 		renderModel(Point_Shadow,lamp, glm::vec3(0.0f, 0.82f, 0.0f),1.0f,1);
 		renderModel(Point_Shadow, chess, glm::vec3(0.9f, -0.27f, 0.08f), 1.0f,1);
 		renderModel(Point_Shadow, table, glm::vec3(1.0f, -1.0f, 0.0f), 1.0f,1);
-		renderModel(Point_Shadow, statue, glm::vec3(-0.5f, -0.45f, -2.0f), 3.0f, 1,0,-1);
-		renderModel(Point_Shadow, table2, glm::vec3(-0.5f, -1.0f, -2.0f), 1.0f, 1);
-		renderModel(Point_Shadow, duck, glm::vec3(1.5f, -0.2f, -2.0f), 1.0f, 1);
-		renderModel(Point_Shadow, table1, glm::vec3(1.5f, -1.0f, -2.0f), 1.0f, 1);
-		renderModel(Point_Shadow, cat, glm::vec3(1.2f, -0.2f, -2.0f), 1.0f, 1);
-		renderModel(Point_Shadow, shelves, glm::vec3(2.2f, -1.0f, 1.6f), 1.5f, 1, 0, 1);
-		renderModel(Point_Shadow, elephant, glm::vec3(2.2f, 0.185f, 1.6f), 3.0f, 1, 0, 1);
-		renderModel(Point_Shadow, book, glm::vec3(2.18f, 0.757f, 1.01f), 2.0f, 1.2f, 0, 1);
-		renderModel(Point_Shadow, plant, glm::vec3(2.2f, 0.185f, 2.12f), 1.8f, 1, 0, 1);
-		renderModel(Point_Shadow, camera, glm::vec3(2.3f, 0.2f, 1.1f), 1.5f, 1, 0, 1);
-		renderModel(Point_Shadow, side_table, glm::vec3(-2.0f, -1.0f, 0.0f), 1.7f, 1, 0, -1);
-		renderModel(Point_Shadow, TV, glm::vec3(-1.95f, -0.08f, 0.0f), 2.0f, 1, 0, -1);
+		renderModel(Point_Shadow, side_table, glm::vec3(-2.0f, -0.98f, 1.9f), 2.0f, 1, 0, 1);
 
+		renderModel(Point_Shadow, table1, glm::vec3(2.1f, -1.0f, -1.8f), 1.0f, 1,0,1);
+		renderModel(Point_Shadow, plant, glm::vec3(2.1f, -0.2f, -1.8f), 1.8f, 1, 0, 1);
+
+		renderModel(Point_Shadow, shelves, glm::vec3(2.2f, -1.0f, 1.6f), 1.5f, 1, 0, 1);
+		renderModel(Point_Shadow, statue, glm::vec3(2.2f, 0.185f, 2.12f), 2.0f, 1, 0, 0.5);
+		renderModel(Point_Shadow, elephant, glm::vec3(2.2f, 0.185f, 1.6f), 3.0f, 1, 0, 1);
+		renderModel(Point_Shadow, book, glm::vec3(2.17f, 0.757f, 1.01f), 2.0f, 1.2f, 0, 1);
+		renderModel(Point_Shadow, cat, glm::vec3(2.2f, -0.38f, 1.6f), 1.5f, 1, 0, 1);
+		renderModel(Point_Shadow, duck, glm::vec3(2.2f, 0.75f, 1.6f), 1.0f, 1, 0, 1);
+
+		renderModel(Point_Shadow, table2, glm::vec3(-2.0f, -1.0f, 0.0f), 1.7f, 1, 0, -1);
+		renderModel(Point_Shadow, picture, glm::vec3(0.75f, 1.0f, 2.5f), 1.0f, 1, 0, -2);
+		renderModel(Point_Shadow, picture2, glm::vec3(-0.25f, 1.0f, 2.5f), 1.0f, 1, 0, -2);
+		renderModel(Point_Shadow, camera, glm::vec3(2.3f, 0.2f, 1.1f), 1.5f, 1, 0, 1);
+		renderModel(Point_Shadow, TV, glm::vec3(-1.95f, -0.35f, 0.0f), 2.0f, 1, 0, -1);
+		renderModel(Point_Shadow, cart, glm::vec3(-1.1f, -1.0f, -1.945f), 1.0f, 1);
+		renderModel(Point_Shadow, boombox, glm::vec3(-2.05f, 0.12f, 1.9f), 1.0f, 1, 0, -1);
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(2.92f, 0.035f, -0.46f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.02737f, 0.022f, 0.02737f));
+		Point_Shadow.setMat4("model", model);
+		Point_Shadow.setMat3("normalMatrix", glm::transpose(glm::inverse(glm::mat3(model))));
+		win.Draw(Point_Shadow);
+		glBindVertexArray(0);
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 		glViewport(0, 0, 800, 600);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
 		item.use();
-		for (unsigned int i = 0; i <= 4; i++) {
-			glActiveTexture(GL_TEXTURE0+i);
-			glBindTexture(GL_TEXTURE_2D, floor[i]);
-		}
 		glActiveTexture(GL_TEXTURE6);
 		glBindTexture(GL_TEXTURE_CUBE_MAP, depthCubemap);
 		item.setMat4("projection", projection);
@@ -174,10 +198,13 @@ int  main() {
 		item.setVec3("camPos", cam.position);
 		item.setVec3("lightPositions[0]", pointLightPositions[0]);
 		item.setVec3("lightColors[0]", glm::vec3(10.0, 10.0, 10.0));
-		//item.setMat4("lightSpaceMatrix",lightSpaceMatrix);
 		item.setFloat("far_plane", far_plane);
-		
+
 		glDisable(GL_CULL_FACE); 
+		for (unsigned int i = 0; i <= 4; i++) {
+			glActiveTexture(GL_TEXTURE0+i);
+			glBindTexture(GL_TEXTURE_2D, floor[i]);
+		}
 		for (float i = -2; i <= 2; i += 1.0f) {
 			for (float j = -2; j <= 2; j += 1.0f) {
 				model = glm::mat4(1.0f);
@@ -189,9 +216,25 @@ int  main() {
 		}
 		for (unsigned int i = 0; i <= 4; i++) {
 			glActiveTexture(GL_TEXTURE0 + i);
-			glBindTexture(GL_TEXTURE_2D, walls[i]);
+			glBindTexture(GL_TEXTURE_2D, wood[i]);
 		}
 		for (float i = -2; i <= 2; i += 1.0f) {
+			for (float j = -2; j <= 2; j += 1.0f) {
+				model = glm::mat4(1.0f);
+				model = glm::translate(model, glm::vec3(i, 1.5f, j));
+				item.setMat4("model", model);
+				item.setMat3("normalMatrix", glm::transpose(glm::inverse(glm::mat3(model))));
+				RenderPlane(roomPlanes, 4, glm::vec3(0.0f, -1.0f, 0.0f));
+			}
+		}
+		for (float j = -1; j <= 1; j += 1.0f) {
+			model = glm::mat4(1.0f);
+			model = glm::translate(model, glm::vec3(2.0f, j + 0.5f, -2.0f));
+			item.setMat4("model", model);
+			item.setMat3("normalMatrix", glm::transpose(glm::inverse(glm::mat3(model))));
+			RenderPlane(roomPlanes, 0, glm::vec3(0.0f, 0.0f, 1.0f));
+		}
+		for (float i = -2.0f; i <= -1.0f; i += 1.0f) {
 			for (float j = -1; j <= 1; j += 1.0f) {
 				model = glm::mat4(1.0f);
 				model = glm::translate(model, glm::vec3(i, j + 0.5f, -2.0f));
@@ -199,6 +242,13 @@ int  main() {
 				item.setMat3("normalMatrix", glm::transpose(glm::inverse(glm::mat3(model))));
 				RenderPlane(roomPlanes, 0, glm::vec3(0.0f, 0.0f, 1.0f));
 			}
+		}
+		for (float i = -1; i <= 1; i += 1.0f) {
+			model = glm::mat4(1.0f);
+			model = glm::translate(model, glm::vec3(i, 1.5f, -2.0f));
+			item.setMat4("model", model);
+			item.setMat3("normalMatrix", glm::transpose(glm::inverse(glm::mat3(model))));
+			RenderPlane(roomPlanes, 0, glm::vec3(0.0f, 0.0f, 1.0f));
 		}
 		for (float i = -2; i <= 2; i += 1.0f) {
 			for (float j = -1; j <= 1; j += 1.0f) {
@@ -209,7 +259,7 @@ int  main() {
 				RenderPlane(roomPlanes, 5, glm::vec3(0.0f, 0.0f, -1.0f));
 			}
 		}
-		for (float i = -2; i <= 2; i += 1.0f) {
+		for (float i = 1.0; i <= 2; i += 1.0f) {
 			for (float j = -1; j <= 1; j += 1.0f) {
 				model = glm::mat4(1.0f);
 				model = glm::translate(model, glm::vec3(2.0f, j + 0.5f, i));
@@ -218,7 +268,22 @@ int  main() {
 				RenderPlane(roomPlanes, 2, glm::vec3(-1.0f, 0.0f, 0.0f));
 			}
 		}
-
+		for (float i = -1.0f; i <= 0.0f; i += 1.0f) {
+			for (float j = -0.5f; j <= 2.0f; j += 2.0f) {
+				model = glm::mat4(1.0f);
+				model = glm::translate(model, glm::vec3(2.0f, j, i));
+				item.setMat4("model", model);
+				item.setMat3("normalMatrix", glm::transpose(glm::inverse(glm::mat3(model))));
+				RenderPlane(roomPlanes, 2, glm::vec3(-1.0f, 0.0f, 0.0f));
+			}
+		}
+		for (float j = -1; j <= 1; j += 1.0f) {
+			model = glm::mat4(1.0f);
+			model = glm::translate(model, glm::vec3(2.0f, j + 0.5f, -2.0f));
+			item.setMat4("model", model);
+			item.setMat3("normalMatrix", glm::transpose(glm::inverse(glm::mat3(model))));
+			RenderPlane(roomPlanes, 2, glm::vec3(-1.0f, 0.0f, 0.0f));
+		}
 		for (float i = -2; i <= 2; i += 1.0f) {
 			for (float j = -1; j <= 1; j += 1.0f) {
 				model = glm::mat4(1.0f);
@@ -229,40 +294,72 @@ int  main() {
 			}
 		}
 
-		for (float i = -2; i <= 2; i += 1.0f) {
-			for (float j = -2; j <= 2; j += 1.0f) {
-				model = glm::mat4(1.0f);
-				model = glm::translate(model, glm::vec3(i, 1.5f, j));
-				item.setMat4("model", model);
-				item.setMat3("normalMatrix", glm::transpose(glm::inverse(glm::mat3(model))));
-				RenderPlane(roomPlanes, 4, glm::vec3(0.0f, -1.0f, 0.0f));
-			}
-		}
- 
 		glEnable(GL_CULL_FACE);
 		item.setVec3("lightColors[0]", glm::vec3(50.0, 50.0, 50.0));
-
-		renderModel(item, lamp, glm::vec3(0.0f, 0.82f, 0.0f), 1.0f, 1);
 		renderModel(item, chess, glm::vec3(0.9f, -0.27f, 0.08f), 1.0f, 1);
-		renderModel(item, table, glm::vec3(1.0f, -1.0f, 0.0f), 1.0f, 1);
-		renderModel(item, statue, glm::vec3(-0.5f, -0.45f, -2.0f), 3.0f, 1, 0, -1);
-		renderModel(item, table2, glm::vec3(-0.5f, -1.0f, -2.0f), 1.0f, 1);
-		renderModel(item, duck, glm::vec3(1.5f, -0.2f, -2.0f), 1.0f, 1);
-		renderModel(item, table1, glm::vec3(1.5f, -1.0f, -2.0f), 1.0f, 1);
-		renderModel(item, cat, glm::vec3(1.2f, -0.2f, -2.0f), 1.0f, 1);
-		renderModel(item, shelves, glm::vec3(2.2f, -1.0f, 1.6f), 1.5f, 1,0,1);
 		renderModel(item, elephant, glm::vec3(2.2f, 0.185f, 1.6f), 3.0f,1,0,1);
-		renderModel(item, book, glm::vec3(2.18f, 0.757f, 1.01f), 2.0f, 1.2f, 0, 1);
-		renderModel(item, plant, glm::vec3(2.2f, 0.185f, 2.12f), 1.8f, 1, 0, 1);
-		renderModel(item, side_table, glm::vec3(-2.0f, -1.0f, 0.0f), 1.7f, 1, 0, -1);
+		renderModel(item, shelves, glm::vec3(2.2f, -1.0f, 1.6f), 1.5f, 1,0,1);
+		renderModel(item, picture, glm::vec3(0.75f, 1.0f, 2.5f), 1.0f, 1, 0, -2);
+		renderModel(item, picture2, glm::vec3(-0.25f, 1.0f, 2.5f), 1.0f, 1, 0, -2);
+		renderModel(item, book, glm::vec3(2.17f, 0.757f, 1.01f), 2.0f, 1.2f, 0, 1);
 		for (unsigned int i = 0; i <= 4; i++) {
 			glActiveTexture(GL_TEXTURE0 + i);
-			glBindTexture(GL_TEXTURE_2D, steel[i]);
+			glBindTexture(GL_TEXTURE_2D, wood_table[i]);
+		}
+		renderModel(item, table, glm::vec3(1.0f, -1.0f, 0.0f), 1.0f, 1);
+		renderModel(item, side_table, glm::vec3(-2.0f, -0.98f, 1.9f), 2.0f, 1,0,1);
+		renderModel(item, table1, glm::vec3(2.1f, -1.0f, -1.8f), 1.0f, 1,0,1);
+		renderModel(item, table2, glm::vec3(-2.0f, -1.0f, 0.0f), 1.7f, 1, 0, -1);
+		renderModel(item, cart, glm::vec3(-1.1f, -1.0f, -1.945f), 1.0f, 1);
+
+		for (unsigned int i = 0; i <= 4; i++) {
+			glActiveTexture(GL_TEXTURE0 + i);
+			glBindTexture(GL_TEXTURE_2D, rock[i]);
+		}
+		renderModel(item, plant, glm::vec3(2.1f, -0.2f, -1.8f), 1.8f, 1, 0, 1);
+		renderModel(item, statue, glm::vec3(2.2f, 0.185f, 2.12f), 2.0f, 1, 0, 0.5);
+		renderModel(item, cat, glm::vec3(2.2f, -0.38f, 1.6f), 1.5f, 1,0,1);
+
+		for (unsigned int i = 0; i <= 4; i++) {
+			glActiveTexture(GL_TEXTURE0 + i);
+			glBindTexture(GL_TEXTURE_2D, plastic[i]);
+		}
+		renderModel(item, duck, glm::vec3(2.2f, 0.75f, 1.6f), 1.0f, 1,0,1);
+		
+		for (unsigned int i = 0; i <= 4; i++) {
+			glActiveTexture(GL_TEXTURE0 + i);
+			glBindTexture(GL_TEXTURE_2D, metal[i]);
 		}
 		renderModel(item, camera, glm::vec3(2.3f, 0.2f, 1.1f), 1.5f, 1, 0, 1);
-		
-		renderModel(item, TV, glm::vec3(-1.95f, -0.08f, 0.0f), 2.0f, 1, 0, -1);
+		renderModel(item, lamp, glm::vec3(0.0f, 0.82f, 0.0f), 1.0f, 1);
+		renderModel(item, boombox, glm::vec3(-2.05f, 0.12f, 1.9f), 1.0f, 1, 0, -1);
+		renderModel(item, TV, glm::vec3(-1.95f, -0.35f, 0.0f), 2.0f, 1, 0, -1);
+		for (unsigned int i = 0; i <= 4; i++) {
+			glActiveTexture(GL_TEXTURE0 + i);
+			glBindTexture(GL_TEXTURE_2D, metal[i]);
+		}
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(2.92f, 0.035f, -0.46f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.02737f, 0.022f, 0.02737f));
+		item.setMat4("model", model);
+		item.setMat3("normalMatrix", glm::transpose(glm::inverse(glm::mat3(model))));
+		win.Draw(item);
+		glBindVertexArray(0); 
 
+		for (unsigned int i = 0; i <= 4; i++) {
+			glActiveTexture(GL_TEXTURE0 + i);
+			glBindTexture(GL_TEXTURE_2D, wood_door[i]);
+		}
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.6f, -0.43f, -2.48f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.05f, 0.06f, 0.08f));
+		item.setMat4("model", model);
+		item.setMat3("normalMatrix", glm::transpose(glm::inverse(glm::mat3(model))));
+		door.Draw(item);
+		glBindVertexArray(0);
+	
 		myShader.use();
 		myShader.setMat4("projection", projection);
 		myShader.setMat4("view", view);

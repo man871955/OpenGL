@@ -1,0 +1,21 @@
+﻿  glad.c
+  shade.cpp
+D:\计算机图形学\Assignment0\Project1\camera.h(17,25): warning C4838: 从“float”转换到“const int”需要收缩转换
+D:\计算机图形学\Assignment0\Project1\camera.h(17,25): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\camera.h(17,30): warning C4838: 从“float”转换到“const int”需要收缩转换
+D:\计算机图形学\Assignment0\Project1\camera.h(17,30): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\camera.h(17,35): warning C4838: 从“float”转换到“const int”需要收缩转换
+D:\计算机图形学\Assignment0\Project1\camera.h(17,35): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\camera.h(17,40): warning C4838: 从“float”转换到“const int”需要收缩转换
+D:\计算机图形学\Assignment0\Project1\camera.h(17,40): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\camera.h(17,45): warning C4838: 从“float”转换到“const int”需要收缩转换
+D:\计算机图形学\Assignment0\Project1\camera.h(17,45): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\camera.h(17,50): warning C4838: 从“float”转换到“const int”需要收缩转换
+D:\计算机图形学\Assignment0\Project1\camera.h(17,50): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\shade.cpp(113,17): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\shade.cpp(274,30): warning C4018: “<”: 有符号/无符号不匹配
+  正在生成代码
+  Previous IPDB not found, fall back to full compilation.
+  All 1088 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  Project1.vcxproj -> D:\计算机图形学\Assignment0\x64\Release\CG Project.exe
