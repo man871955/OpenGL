@@ -1,5 +1,4 @@
-﻿D:\Microsoft Visual Studio\2022\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: 中间目录(x64\Debug\)包含从另一个项目(Project1.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
-  shade.cpp
+﻿  shade.cpp
 D:\计算机图形学\Assignment0\Project1\camera.h(17,25): warning C4838: 从“float”转换到“const int”需要收缩转换
 D:\计算机图形学\Assignment0\Project1\camera.h(17,25): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
 D:\计算机图形学\Assignment0\Project1\camera.h(17,30): warning C4838: 从“float”转换到“const int”需要收缩转换
@@ -14,4 +13,5 @@ D:\计算机图形学\Assignment0\Project1\camera.h(17,50): warning C4838: 从�
 D:\计算机图形学\Assignment0\Project1\camera.h(17,50): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
 D:\计算机图形学\Assignment0\Project1\shade.cpp(112,17): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
 D:\计算机图形学\Assignment0\Project1\shade.cpp(271,30): warning C4018: “<”: 有符号/无符号不匹配
+LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
   Project1.vcxproj -> D:\计算机图形学\Assignment0\x64\Debug\CG Project.exe

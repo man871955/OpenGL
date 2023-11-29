@@ -238,7 +238,7 @@ int  main() {
 				RenderPlane(roomPlanes, 4, glm::vec3(0.0f, -1.0f, 0.0f));
 			}
 		}
-
+ 
 		glEnable(GL_CULL_FACE);
 		item.setVec3("lightColors[0]", glm::vec3(50.0, 50.0, 50.0));
 
