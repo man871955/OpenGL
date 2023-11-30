@@ -14,36 +14,19 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="源文件\src">
-      <UniqueIdentifier>{91c24c33-5553-4212-b83c-af88947ee069}</UniqueIdentifier>
+      <UniqueIdentifier>{cb690c8e-52cc-4acc-8985-4677b27779dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\src\animation">
+      <UniqueIdentifier>{f3118fb0-afc8-48bf-8544-13ed1875dced}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="shade.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\OpenGL\include\glad.c">
+    <ClCompile Include="src\glad.c">
       <Filter>源文件\src</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="sources.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="camera.h">
-      <Filter>源文件\src</Filter>
-    </ClInclude>
-    <ClInclude Include="mesh.h">
-      <Filter>源文件\src</Filter>
-    </ClInclude>
-    <ClInclude Include="model.h">
-      <Filter>源文件\src</Filter>
-    </ClInclude>
-    <ClInclude Include="stb_image.h">
-      <Filter>源文件\src</Filter>
-    </ClInclude>
-    <ClInclude Include="shader.h">
-      <Filter>源文件\src</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="VertexShaders\skyBox.vs">
@@ -56,12 +39,6 @@
       <Filter>头文件</Filter>
     </None>
     <None Include="VertexShaders\Shader.vs">
-      <Filter>头文件</Filter>
-    </None>
-    <None Include="FragmentShaders\Shadow.fs">
-      <Filter>头文件</Filter>
-    </None>
-    <None Include="VertexShaders\Shadow.vs">
       <Filter>头文件</Filter>
     </None>
     <None Include="FragmentShaders\item.fs">
@@ -79,5 +56,49 @@
     <None Include="VertexShaders\PointShadow.vs">
       <Filter>头文件</Filter>
     </None>
+    <None Include="FragmentShaders\anim_model.fs">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="VertexShaders\anim_model.vs">
+      <Filter>头文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\camera.h">
+      <Filter>源文件\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mesh.h">
+      <Filter>源文件\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\model.h">
+      <Filter>源文件\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\shader.h">
+      <Filter>源文件\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sources.h">
+      <Filter>源文件\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\stb_image.h">
+      <Filter>源文件\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\animation\animation.h">
+      <Filter>源文件\src\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\animation\animator.h">
+      <Filter>源文件\src\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\animation\animdata.h">
+      <Filter>源文件\src\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\animation\assimp_glm_helpers.h">
+      <Filter>源文件\src\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\animation\bone.h">
+      <Filter>源文件\src\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\animation\model_animation.h">
+      <Filter>源文件\src\animation</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

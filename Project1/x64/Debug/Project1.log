@@ -1,16 +1,27 @@
-﻿  shade.cpp
-D:\计算机图形学\Assignment0\Project1\camera.h(17,25): warning C4838: 从“float”转换到“const int”需要收缩转换
-D:\计算机图形学\Assignment0\Project1\camera.h(17,25): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
-D:\计算机图形学\Assignment0\Project1\camera.h(17,30): warning C4838: 从“float”转换到“const int”需要收缩转换
-D:\计算机图形学\Assignment0\Project1\camera.h(17,30): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
-D:\计算机图形学\Assignment0\Project1\camera.h(17,35): warning C4838: 从“float”转换到“const int”需要收缩转换
-D:\计算机图形学\Assignment0\Project1\camera.h(17,35): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
-D:\计算机图形学\Assignment0\Project1\camera.h(17,40): warning C4838: 从“float”转换到“const int”需要收缩转换
-D:\计算机图形学\Assignment0\Project1\camera.h(17,40): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
-D:\计算机图形学\Assignment0\Project1\camera.h(17,45): warning C4838: 从“float”转换到“const int”需要收缩转换
-D:\计算机图形学\Assignment0\Project1\camera.h(17,45): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
-D:\计算机图形学\Assignment0\Project1\camera.h(17,50): warning C4838: 从“float”转换到“const int”需要收缩转换
-D:\计算机图形学\Assignment0\Project1\camera.h(17,50): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
-D:\计算机图形学\Assignment0\Project1\shade.cpp(126,17): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\计算机图形学\Assignment0\Project1\shade.cpp(368,30): warning C4018: “<”: 有符号/无符号不匹配
+﻿  main.cpp
+D:\计算机图形学\Assignment0\Project1\src\camera.h(17,25): warning C4838: 从“float”转换到“const int”需要收缩转换
+D:\计算机图形学\Assignment0\Project1\src\camera.h(17,25): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\src\camera.h(17,30): warning C4838: 从“float”转换到“const int”需要收缩转换
+D:\计算机图形学\Assignment0\Project1\src\camera.h(17,30): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\src\camera.h(17,35): warning C4838: 从“float”转换到“const int”需要收缩转换
+D:\计算机图形学\Assignment0\Project1\src\camera.h(17,35): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\src\camera.h(17,40): warning C4838: 从“float”转换到“const int”需要收缩转换
+D:\计算机图形学\Assignment0\Project1\src\camera.h(17,40): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\src\camera.h(17,45): warning C4838: 从“float”转换到“const int”需要收缩转换
+D:\计算机图形学\Assignment0\Project1\src\camera.h(17,45): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\src\camera.h(17,50): warning C4838: 从“float”转换到“const int”需要收缩转换
+D:\计算机图形学\Assignment0\Project1\src\camera.h(17,50): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\src\animation\bone.h(45,20): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\src\animation\bone.h(56,20): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\src\animation\bone.h(67,20): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\src\animation\model_animation.h(173,37): warning C4018: “<”: 有符号/无符号不匹配
+D:\计算机图形学\Assignment0\Project1\src\animation\animation.h(31,25): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\src\animation\animation.h(32,31): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\src\animation\animation.h(56,44): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\src\animation\animation.h(98,21): warning C4018: “<”: 有符号/无符号不匹配
+D:\计算机图形学\Assignment0\Project1\main.cpp(134,17): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\计算机图形学\Assignment0\Project1\main.cpp(419,30): warning C4018: “<”: 有符号/无符号不匹配
+D:\计算机图形学\Assignment0\Project1\src\animation\bone.h(106): warning C4715: “Bone::GetRotationIndex”: 不是所有的控件路径都返回值
+D:\计算机图形学\Assignment0\Project1\src\animation\bone.h(96): warning C4715: “Bone::GetPositionIndex”: 不是所有的控件路径都返回值
+D:\计算机图形学\Assignment0\Project1\src\animation\bone.h(116): warning C4715: “Bone::GetScaleIndex”: 不是所有的控件路径都返回值
   Project1.vcxproj -> D:\计算机图形学\Assignment0\x64\Debug\CG Project.exe

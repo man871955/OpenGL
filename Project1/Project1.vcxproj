@@ -78,6 +78,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>D:\计算机图形学\Assignment0\Project1;D:\计算机图形学\Assignment0\OpenGL\include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\计算机图形学\Assignment0\OpenGL\glfw-3.3.8.bin.WIN64\lib-vc2022;D:\计算机图形学\Assignment0\OpenGL\AssimpBuild\lib;$(LibraryPath)</LibraryPath>
+    <TargetName>CG Project</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>D:\计算机图形学\Assignment0\Project1;D:\计算机图形学\Assignment0\OpenGL\include;$(IncludePath)</IncludePath>
@@ -152,29 +153,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\OpenGL\include\glad.c" />
-    <ClCompile Include="shade.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\glad.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="camera.h" />
-    <ClInclude Include="mesh.h" />
-    <ClInclude Include="model.h" />
-    <ClInclude Include="shader.h" />
-    <ClInclude Include="sources.h" />
-    <ClInclude Include="stb_image.h" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="FragmentShaders\anim_model.fs" />
     <None Include="FragmentShaders\item.fs" />
     <None Include="FragmentShaders\PointShadow.fs" />
-    <None Include="FragmentShaders\Shadow.fs" />
     <None Include="FragmentShaders\skyBox.fs" />
     <None Include="FragmentShaders\Shader.fs" />
+    <None Include="VertexShaders\anim_model.vs" />
     <None Include="VertexShaders\item.vs" />
     <None Include="VertexShaders\PointShadow.gs" />
     <None Include="VertexShaders\PointShadow.vs" />
-    <None Include="VertexShaders\Shadow.vs" />
     <None Include="VertexShaders\skyBox.vs" />
     <None Include="VertexShaders\Shader.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\animation\animation.h" />
+    <ClInclude Include="src\animation\animator.h" />
+    <ClInclude Include="src\animation\animdata.h" />
+    <ClInclude Include="src\animation\assimp_glm_helpers.h" />
+    <ClInclude Include="src\animation\bone.h" />
+    <ClInclude Include="src\animation\model_animation.h" />
+    <ClInclude Include="src\camera.h" />
+    <ClInclude Include="src\mesh.h" />
+    <ClInclude Include="src\model.h" />
+    <ClInclude Include="src\shader.h" />
+    <ClInclude Include="src\sources.h" />
+    <ClInclude Include="src\stb_image.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
