@@ -157,12 +157,12 @@
     <ClCompile Include="src\glad.c" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="FragmentShaders\anim_model.fs" />
+    <None Include="FragmentShaders\animator.fs" />
     <None Include="FragmentShaders\item.fs" />
     <None Include="FragmentShaders\PointShadow.fs" />
     <None Include="FragmentShaders\skyBox.fs" />
     <None Include="FragmentShaders\Shader.fs" />
-    <None Include="VertexShaders\anim_model.vs" />
+    <None Include="VertexShaders\animator.vs" />
     <None Include="VertexShaders\item.vs" />
     <None Include="VertexShaders\PointShadow.gs" />
     <None Include="VertexShaders\PointShadow.vs" />

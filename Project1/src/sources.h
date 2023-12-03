@@ -16,20 +16,16 @@
 #include "animation/model_animation.h"
 
 camera cam(glm::vec3(0.0f, 0.0f, 0.0f));
+int L = 0;
 bool firstMouse = true;
 float lastX = 400, lastY = 300;
 float deltaTime = 0.0f, lastFrame = 0.0f;
-int NR_POINT_LIGHTS = 1;
+
+float lightScale[] = { 0.23f,0.05f };
 
 glm::vec3 pointLightPositions[] = {
-	glm::vec3(0.0f, 1.2f,  0.0f),
-	glm::vec3(-1.0f, 1.0f, 1.0f),
-};
-
-glm::vec3 pointLightColors[] = {
-	glm::vec3(1.0f, 1.0f, 1.0f),
-	glm::vec3(255.0*0.98f, 255.0*0.6745f, 255.0*0.07451f),
-	
+	glm::vec3(0.0f, 1.2f, 0.0f),
+	glm::vec3(0.0f, 1.246f, 0.0f),
 };
 
 vector<glm::vec3> roomPlanes = {
@@ -130,6 +126,7 @@ void processInput(GLFWwindow* window)
 		cam.ProcessKeyboard(UP, deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
 		cam.ProcessKeyboard(DOWN, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) L = 1 - L;
 }
 void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
 {

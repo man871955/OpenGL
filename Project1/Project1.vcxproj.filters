@@ -56,10 +56,10 @@
     <None Include="VertexShaders\PointShadow.vs">
       <Filter>头文件</Filter>
     </None>
-    <None Include="FragmentShaders\anim_model.fs">
+    <None Include="FragmentShaders\animator.fs">
       <Filter>头文件</Filter>
     </None>
-    <None Include="VertexShaders\anim_model.vs">
+    <None Include="VertexShaders\animator.vs">
       <Filter>头文件</Filter>
     </None>
   </ItemGroup>

@@ -10,14 +10,11 @@ layout (location = 6) in vec4 weights;
 out vec2 TexCoords;
 out vec3 WorldPos;
 out vec3 Normal;
-out vec3 nm;
-out vec4 FragPosLightSpace;
 
 uniform mat4 projection;
 uniform mat4 view;
 uniform mat4 model;
 uniform mat3 normalMatrix;
-uniform mat4 lightSpaceMatrix;
 
 uniform bool animate;
 const int MAX_BONES = 100;
@@ -29,12 +26,11 @@ void main()
     TexCoords = aTexCoords;
     WorldPos = vec3(model * vec4(aPos, 1.0));
     Normal = normalMatrix * aNormal;   
-    nm = transpose(inverse(mat3(model))) * aNormal;
-    FragPosLightSpace = lightSpaceMatrix * vec4(WorldPos, 1.0);
     gl_Position =  projection * view * vec4(WorldPos, 1.0);
 
     if (animate) {
         vec4 totalPosition = vec4(0.0f);
+        vec3 totalNormal = vec3(0.0f);
         for(int i = 0 ; i < MAX_BONE_INFLUENCE ; i++)
         {
             if(boneIds[i] == -1) 
@@ -47,9 +43,11 @@ void main()
             vec4 localPosition = finalBonesMatrices[boneIds[i]] * vec4(aPos,1.0f);
             totalPosition += localPosition * weights[i];
             vec3 localNormal = mat3(finalBonesMatrices[boneIds[i]]) * aNormal;
+            totalNormal += localNormal * weights[i];
         }
         mat4 viewModel = view * model;
         gl_Position =  projection * viewModel * totalPosition;
-        WorldPos = vec3(totalPosition);
+        WorldPos = vec3(model * vec4(vec3(totalPosition),1.0));
+        Normal = normalMatrix * totalNormal; 
     }
 }

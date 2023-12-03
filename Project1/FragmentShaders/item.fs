@@ -3,20 +3,16 @@ out vec4 FragColor;
 in vec2 TexCoords;
 in vec3 WorldPos;
 in vec3 Normal;
-in vec3 nm;
-in vec4 FragPosLightSpace;
 #define NR_LIGHTS 1
-// material parameters
+
 uniform sampler2D albedoMap;
 uniform sampler2D normalMap;
 uniform sampler2D metallicMap;
 uniform sampler2D roughnessMap;
 uniform sampler2D aoMap;
-uniform sampler2D ShadowMap;
 uniform samplerCube PointShadowMap;
 uniform float far_plane;
 
-// lights
 uniform vec3 lightPositions[NR_LIGHTS];
 uniform vec3 lightColors[NR_LIGHTS];
 
@@ -39,37 +35,9 @@ float PointShadowCalculation(vec3 lightPos)
     float bias = 0.005; 
     closestDepth *= far_plane;
     shadow = currentDepth -  bias > closestDepth ? 1.0 : 0.0;
+    return shadow;
+}
 
-    return shadow;
-}
-float ShadowCalculation(vec3 lightPos)
-{
-    vec3 projCoords = FragPosLightSpace.xyz / FragPosLightSpace.w;
-    // Transform to [0,1] range
-    projCoords = projCoords * 0.5 + 0.5;
-    // Get closest depth value from light's perspective (using [0,1] range fragPosLight as coords)
-    float closestDepth = texture(ShadowMap, projCoords.xy).r; 
-    float currentDepth = projCoords.z;
-    vec3 normal = normalize(nm);
-    vec3 lightDir = normalize(lightPos - WorldPos);
-    float bias = 0.00;//max(0.05 * (1.0 - dot(nm, lightDir)), 0.005);
-    float shadow = 0.0;
-    vec2 texelSize = 1.0 / textureSize(ShadowMap, 0);
-    for(int x = -2; x <= 2; ++x)
-    {
-        for(int y = -2; y <= 2; ++y)
-        {
-            float pcfDepth = texture(ShadowMap, projCoords.xy + vec2(x, y) * texelSize).r; 
-            shadow += currentDepth - bias > pcfDepth  ? 1.0 : 0.0;        
-        }    
-    }
-    shadow /= 25.0;
-    
-    // Keep the shadow at 0.0 when outside the far_plane region of the light's frustum.
-    if(projCoords.z > 1.0)
-        shadow = 0.0;
-    return shadow;
-}
 vec3 getNormalFromMap()
 {
     vec3 tangentNormal = texture(normalMap, TexCoords).xyz * 2.0 - 1.0;
@@ -142,11 +110,9 @@ void main()
     vec3 F0 = vec3(0.04); 
     F0 = mix(F0, albedo, metallic);
 
-    // reflectance equation
     vec3 Lo = vec3(0.0);
     for(int i = 0; i < NR_LIGHTS; ++i) 
     {
-        // calculate per-light radiance
         float shadow = PointShadowCalculation(lightPositions[i]);
         vec3 L = normalize(lightPositions[i] - WorldPos);
         vec3 H = normalize(V + L);
@@ -160,7 +126,7 @@ void main()
         vec3 F    = fresnelSchlick(max(dot(H, V), 0.0), F0);
            
         vec3 numerator    = NDF * G * F; 
-        float denominator = 4.0 * max(dot(N, V), 0.0) * max(dot(N, L), 0.0) + 0.0001; // + 0.0001 to prevent divide by zero
+        float denominator = 4.0 * max(dot(N, V), 0.0) * max(dot(N, L), 0.0) + 0.0001; 
         vec3 specular = numerator / denominator;
         
         // kS is equal to Fresnel
@@ -170,9 +136,8 @@ void main()
 
         // scale light by NdotL
         float NdotL = max(dot(N, L), 0.0);        
-        Lo += (1.0 - shadow)*( kD * albedo / PI + specular) * radiance * NdotL;  // note that we already multiplied the BRDF by the Fresnel (kS) so we won't multiply by kS again
+        Lo += (1.0 - shadow)*( kD * albedo / PI + specular) * radiance * NdotL; 
     }   
-    
 
     vec3 ambient = vec3(0.05) * albedo * ao;
     
